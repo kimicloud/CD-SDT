@@ -1,5 +1,8 @@
 # SDT ANALYZER
 
+<img width="1709" height="989" alt="SDT-ANALSIS TOOL" src="https://github.com/user-attachments/assets/0b89d8c6-e55f-4c11-966a-673469b93542" />
+
+
 A simple web tool to learn **Syntax Directed Translation (SDT)**, especially **S-attributed SDT**.
 
 You can type an arithmetic expression (like `3+4*5`) and it will:
