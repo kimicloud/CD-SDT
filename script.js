@@ -1,22 +1,17 @@
-// SDT Analysis Tool - JavaScript Functions
 
-// Global state
 let currentTool = null;
 
-// Tool switching functions
 function showTool(toolName) {
-    // Hide all tools
+
     const tools = document.querySelectorAll('.tool-interface');
     tools.forEach(tool => tool.classList.add('hidden'));
     
-    // Show selected tool
     const selectedTool = document.getElementById(toolName + '-tool');
     if (selectedTool) {
         selectedTool.classList.remove('hidden');
         selectedTool.classList.add('fade-in');
         currentTool = toolName;
         
-        // Smooth scroll to tool
         selectedTool.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
@@ -287,26 +282,26 @@ function displayExpressionResults(solution) {
     
     resultsDiv.innerHTML = `
         <div class="result-card">
-            <h3>🌿 Complete S-SDT Solution for: ${solution.expression}</h3>
+            <h3>Complete S-SDT Solution for: ${solution.expression}</h3>
         </div>
         
         <div class="result-card">
-            <h3>📋 Step 1: Context-Free Grammar</h3>
+            <h3>Step 1: Context-Free Grammar</h3>
             <pre>${solution.cfg}</pre>
         </div>
         
         <div class="result-card">
-            <h3>🌳 Step 2: Parse Tree</h3>
+            <h3>Step 2: Parse Tree</h3>
             <pre>${solution.parseTree}</pre>
         </div>
         
         <div class="result-card">
-            <h3>⚙️ Step 3: Semantic Rules</h3>
+            <h3>Step 3: Semantic Rules</h3>
             <pre>${solution.semanticRules}</pre>
         </div>
         
         <div class="result-card">
-            <h3>🎯 Step 4: Final Result</h3>
+            <h3>Step 4: Final Result</h3>
             <div style="font-size: 18px; font-weight: 600; color: var(--primary-green); padding: 20px; background: var(--mint); border-radius: 8px; text-align: center;">
                 ${solution.expression} = ${solution.evaluation}
             </div>
@@ -400,7 +395,7 @@ function displayRulesResults(grammar, rules, analysis) {
     
     resultsDiv.innerHTML = `
         <div class="result-card">
-            <h3>📊 Analysis Summary</h3>
+            <h3>Analysis Summary</h3>
             <div style="text-align: center; padding: 20px;">
                 <div class="result-label ${summaryClass}" style="font-size: 16px; padding: 12px 24px;">
                     ${summaryText}
@@ -415,17 +410,17 @@ function displayRulesResults(grammar, rules, analysis) {
         </div>
         
         <div class="result-card">
-            <h3>📋 Given Grammar</h3>
+            <h3>Given Grammar</h3>
             <pre>${grammarHTML}</pre>
         </div>
         
         <div class="result-card">
-            <h3>🔍 Rule-by-Rule Analysis</h3>
+            <h3>Rule-by-Rule Analysis</h3>
             ${analysisHTML}
         </div>
         
         <div class="result-card">
-            <h3>💡 Understanding the Results</h3>
+            <h3>Understanding the Results</h3>
             <div style="background: var(--mint); padding: 20px; border-radius: 8px; border: 1px solid var(--pale-green);">
                 <p><strong>S-Attributed SDT:</strong> Uses only synthesized attributes that flow bottom-up in the parse tree. Perfect for shift-reduce parsers.</p>
                 <p style="margin-top: 12px;"><strong>L-Attributed SDT:</strong> Uses both synthesized and inherited attributes. Inherited attributes flow from parent to children or left-to-right between siblings.</p>
@@ -464,13 +459,11 @@ function showMessage(message, type = 'info') {
     messageDiv.textContent = message;
     document.body.appendChild(messageDiv);
     
-    // Animate in
     setTimeout(() => {
         messageDiv.style.opacity = '1';
         messageDiv.style.transform = 'translateX(0)';
     }, 100);
     
-    // Remove after 3 seconds
     setTimeout(() => {
         messageDiv.style.opacity = '0';
         messageDiv.style.transform = 'translateX(100px)';
@@ -484,7 +477,7 @@ function showMessage(message, type = 'info') {
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -498,14 +491,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Enter key support for expression input
     document.getElementById('expression-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             evaluateExpression();
         }
     });
     
-    // Dynamic navbar background on scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
