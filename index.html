@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDT Analysis Tool - Syntax-Directed Translation Made Easy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo">🌿</span>
+                <span class="brand-text">SDT Analyzer</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Syntax-Directed Translation <span class="highlight">Made Simple</span></h1>
+                <p class="hero-subtitle">Analyze SDT rules, evaluate arithmetic expressions, and understand compiler theory with our comprehensive toolset.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showTool('expression')">Try Expression Evaluator</button>
+                    <button class="btn btn-secondary" onclick="showTool('rules')">Analyze SDT Rules</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="code-preview">
+                        <div class="code-line">E → E + T | T</div>
+                        <div class="code-line">T → T * F | F</div>
+                        <div class="code-line">F → ( E ) | digit</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2>Choose Your Tool</h2>
+                <div class="tool-cards">
+                    <div class="tool-card" onclick="showTool('expression')">
+                        <div class="tool-icon">📊</div>
+                        <h3>Expression Evaluator</h3>
+                        <p>Generate complete S-SDT solutions for arithmetic expressions with visual parse trees.</p>
+                        <span class="tool-badge">Interactive</span>
+                    </div>
+                    <div class="tool-card" onclick="showTool('rules')">
+                        <div class="tool-icon">🔍</div>
+                        <h3>SDT Rule Analyzer</h3>
+                        <p>Analyze grammar productions and semantic rules to determine S-attributed properties.</p>
+                        <span class="tool-badge">Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expression Evaluator Tool -->
+        <section id="expression-tool" class="tool-interface hidden">
+            <div class="container">
+                <div class="tool-header">
+                    <h2>🌿 Arithmetic Expression Evaluator</h2>
+                    <p>Generate complete S-SDT solutions with CFG, parse trees, and semantic rules</p>
+                </div>
+                
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="expression-input">Enter Arithmetic Expression</label>
+                        <input type="text" id="expression-input" placeholder="e.g., 3+4*5 or 2**3+1" />
+                        <div class="input-help">
+                            Supported operators: + - * / ** (exponentiation) ^ ( )
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="evaluateExpression()">Generate S-SDT Solution</button>
+                </div>
+
+                <div id="expression-results" class="results-section"></div>
+            </div>
+        </section>
+
+        <!-- SDT Rules Analyzer Tool -->
+        <section id="rules-tool" class="tool-interface hidden">
+            <div class="container">
+                <div class="tool-header">
+                    <h2>🔍 SDT Rules Analyzer</h2>
+                    <p>Analyze grammar productions and semantic rules for S-attributed properties</p>
+                </div>
+                
+                <div class="analyzer-interface">
+                    <div class="input-columns">
+                        <div class="input-column">
+                            <h3>Grammar Productions</h3>
+                            <textarea id="grammar-input" placeholder="E → E + T | T&#10;T → T * F | F&#10;F → ( E ) | digit"></textarea>
+                            <button class="btn btn-outline" onclick="addGrammarRule()">Add Production</button>
+                        </div>
+                        <div class="input-column">
+                            <h3>Semantic Rules</h3>
+                            <textarea id="rules-input" placeholder="E.val = E1.val + T.val&#10;T.val = T1.val * F.val&#10;F.val = digit.lexval"></textarea>
+                            <button class="btn btn-outline" onclick="addSemanticRule()">Add Rule</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="analyzeRules()">Analyze S-SDT Properties</button>
+                </div>
+
+                <div id="rules-results" class="results-section"></div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Syntax-Directed Translation</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>What is SDT?</h3>
+                        <p>Syntax-Directed Translation extends context-free grammar by associating semantic rules with grammar productions, enabling tasks like type checking, code generation, and expression evaluation.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>S-Attributed SDT</h3>
+                        <p>Uses only synthesized attributes with bottom-up evaluation. Perfect for shift-reduce parsers and ensures efficient implementation without inherited attributes.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>L-Attributed SDT</h3>
+                        <p>Uses both synthesized and inherited attributes with left-to-right propagation. More flexible but requires careful dependency management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SDT Analyzer. Built for compiler theory enthusiasts.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
