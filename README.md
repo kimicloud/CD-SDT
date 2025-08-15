@@ -1,4 +1,4 @@
-# CD-SDT
+# SDT ANALYZER
 
 A simple web tool to learn **Syntax Directed Translation (SDT)**, especially **S-attributed SDT**.
 
@@ -23,16 +23,24 @@ Type an expression and see the output instantly.
    ```bash
    git clone https://github.com/kimicloud/CD-SDT.git
    cd CD-SDT
-Open index.html in your browser.
-Enter any arithmetic expression.
-Files
-index.html – main page
-script.js – logic for parsing, CFG, parse tree, and evaluation
-styles.css – styles for the page
-Features
-Works in any browser (no server needed)
-Supports + - * / ** ^ ()
-Generates a valid CFG for your expression
-Displays a simple parse tree
-Lists semantic rules used for evaluation
-Shows the final result of the expression
+2. Open `index.html` in your browser.
+3. Enter any arithmetic expression.
+
+---
+
+## Files
+
+- `index.html` – main page
+- `script.js` – logic for parsing, CFG, parse tree, and evaluation
+- `styles.css` – styles for the page
+
+---
+
+## Features
+
+- Works in any browser (no server needed)
+- Supports `+ - * / ** ^ ()`
+- Generates a valid CFG for your expression
+- Displays a simple parse tree
+- Lists semantic rules used for evaluation
+- Shows the final result of the expression
