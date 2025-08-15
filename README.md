@@ -15,7 +15,7 @@ This is made for students learning compiler design and parsing.
 ## How to Use
 
 ### Online
-Open the live version here: *(add your Vercel link if hosted)*  
+Open the live version here: sdt-analyzer.vercel.app
 Type an expression and see the output instantly.
 
 ### Local
